@@ -6,6 +6,7 @@ class OneParamRangeTest:
         self.range = 13 if range is None else range
 
     def set_func(self, func: Callable):
+        """We expect the parameter of `func` to be the number range"""
         self.func = func
     
     def generate(self, func: Callable) -> None:
