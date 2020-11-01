@@ -1,3 +1,5 @@
+from test import OneParamRangeTest
+
 def fibonacci_num(n):
     if n == 0:
         return 0
@@ -13,5 +15,8 @@ def modified_fibo_num(n):
         return (modified_fibo_num(n-1) + modified_fibo_num(n-2) 
                 + modified_fibo_num(n-3))
 
-for i in range(1, 12):
-    print(f"n = {i} | F({i}) = {fibonacci_num(i)}")
+
+# Test here
+if __name__ == '__main__':
+    print("Fibonacci Test")
+    OneParamRangeTest().generate(fibonacci_num)
