@@ -14,17 +14,14 @@ def factorial(n: int):
         return factorial(n-1) * n
 
 def double_factorial(n: int):
-    if n == 0 or n == 1:
-        return 1
-    else:
-        return double_factorial(n-2) * n
+    return 1 if n < 2 else n*double_factorial(n-2)
 
 def triple_factorial(n: int):
-    return 1 if n < 3 else triple_factorial(n-3) * n
+    return 1 if n < 3 else n*triple_factorial(n-3)
 
 def k_factorial(n: int, k: int):
-    return 1 if n < k else k_factorial(n-k, k) * n
-        
+    return 1 if n < k else n*k_factorial(n-k, k)
+
 def make_fact_mark(k):
     mark = ""
     for _ in range(k):
