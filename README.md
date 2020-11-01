@@ -7,4 +7,4 @@ A collection of common math algorithms. We sort according to difficulty, in part
 - k-Factorials
 
 ### Medium
-- Linear Systems (Gaussian Elimination)
+- Gaussian Elimination
