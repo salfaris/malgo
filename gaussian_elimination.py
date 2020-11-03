@@ -1,16 +1,11 @@
 import numpy as np
-from typing import List
-
-# Define type aliases
-Matrix = np.array
-Vector = np.array
-index = int
+from custom_type import Matrix, Vector, mat_index
 
 def find_maximal(row):
     absrow = [abs(r) for r in row]
     return absrow.index(max(absrow))
 
-def swap(A: Matrix, b: Vector, i: index, j: index):
+def swap(A: Matrix, b: Vector, i: mat_index, j: mat_index):
     """Swaps in-place"""
     A[i], A[j] = A[j], np.array(A[i])
     b[i], b[j] = b[j], b[i]
