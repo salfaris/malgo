@@ -1,4 +1,4 @@
-from test import OneParamRangeTest
+from test import OneParamRangeTest, TwoParamRangeTest
 
 def factorial(n: int):
     if n == 0 or n == 1:
@@ -16,7 +16,8 @@ def k_factorial(n: int, k: int):
     return 1 if n < k else n*k_factorial(n-k, k)
 
 
-# Test here
+# TESTS GOES HERE
 if __name__ == '__main__':
     print("Factorial Test")
-    OneParamRangeTest().generate(double_factorial)
+    OneParamRangeTest().generate(triple_factorial)
+    TwoParamRangeTest().set_param_two(3).generate(k_factorial)
