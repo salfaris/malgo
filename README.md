@@ -5,6 +5,8 @@ A collection of common math algorithms. We sort according to difficulty, in part
 ### Easy
 - Fibonacci sequence
 - k-Factorials
+- Price discount
 
 ### Medium
 - Gaussian Elimination
+- Integration (Trapezoidal, Midpoint)
