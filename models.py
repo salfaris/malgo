@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Any
 from custom_type import Function, Real, KernelMethod
 
 class IntegralKernel:
@@ -28,8 +28,6 @@ class IntegralKernel:
         return res
     
     def integrate_pretty(self, subdivisions: int = None):
-        """Code credit: https://stackoverflow.com/a/39032993/13698939"""
-        
         table_header = ['method', 'return']
         col_method = [method.__name__ for method in self.methods]
         
@@ -39,11 +37,16 @@ class IntegralKernel:
             col_return = [(self.integrate(method, subdivisions) 
                            for method in self.methods)]
             
-        table_data = [table_header] + list(zip(col_method, col_return))
-        
-        for idx, row in enumerate(table_data):
-            line = '|'.join(str(x).ljust(12) for x in row)
-            print(line)
-            if not idx:
-                print('-' * len(line))
+        generate_table(table_header, col_method, col_return)
         return self
+    
+def generate_table(header: List[str], *columns: List[Any]):
+    """Code credit: https://stackoverflow.com/a/39032993/13698939"""
+    
+    table_data = [header] + list(zip(*columns))
+    
+    for idx, row in enumerate(table_data):
+        line = '|'.join(str(x).ljust(12) for x in row)
+        print(line)
+        if not idx:
+            print('-' * len(line))
