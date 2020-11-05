@@ -37,6 +37,8 @@ def simpson(f: Function, a: Real, b: Real, n: int) -> Real:
 # TEST CODE
 if __name__ == '__main__':
     func = lambda x: 2./(x**2+1)
-    ker = IntegralKernel(func=func, startpoint=-1, endpoint=1)
+    ker = IntegralKernel(func=func,
+                         startpoint=-1,
+                         endpoint=1)
     ker.add_method([trapezoidal, midpoint, simpson])
-    ker.integrate_pretty()
+    ker.integrate_pretty(subdivisions=50)

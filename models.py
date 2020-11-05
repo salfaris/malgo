@@ -6,7 +6,6 @@ class IntegralKernel:
         self.func = func
         self.startpoint = startpoint
         self.endpoint = endpoint
-        self.subdivisions = 50
         self.methods = []
     
     def add_method(self, methods: Union[KernelMethod, List[KernelMethod]]):
@@ -17,31 +16,22 @@ class IntegralKernel:
         self.methods = list(set(self.methods))
         return self
     
-    def integrate(self, method: KernelMethod, subdivisions: int = None):
-        if subdivisions is None:
-            res = method(self.func,
-                         self.startpoint,
-                         self.endpoint,
-                         self.subdivisions)
-        else:
-            res = method(self.func,
-                         self.startpoint,
-                         self.endpoint,
-                         subdivisions)
+    def integrate(self, method: KernelMethod, subdivisions: int) -> float:
+        res = method(self.func,
+                     self.startpoint,
+                     self.endpoint,
+                     subdivisions)
         return res
     
-    def integrate_pretty(self, subdivisions: int = None):
+    def integrate_pretty(self, subdivisions: int) -> None:
         table_header = ['method', 'return']
         col_method = [method.__name__ for method in self.methods]
-        
-        if subdivisions is None:
-            col_return = [self.integrate(method) for method in self.methods]
-        else:
-            col_return = [(self.integrate(method, subdivisions) 
-                           for method in self.methods)]
+        col_return = [self.integrate(method, subdivisions)
+                      for method in self.methods]
             
         generate_table(table_header, col_method, col_return)
         return self
+    
     
 class NotMatchError(Exception):
     pass
