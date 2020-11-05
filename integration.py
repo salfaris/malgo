@@ -8,6 +8,7 @@ All functions below has arguments as follows:
 
 import numpy as np
 from custom_type import Function, Real
+from models import IntegralKernel
 
 def midpoint(f: Function, a: Real, b: Real, n: int):
     """Integration using the midpoint rule."""
@@ -33,21 +34,9 @@ def simpson(f: Function, a: Real, b: Real, n: int) -> Real:
     return (sum(fs1) + 2*sum(fs2) + 0.5*(f(a) + f(b))) * dx/3
 
 
-# func = lambda x: 2./(x**2+1)
-# func = lambda x: x**2
-# startpoint = -1
-# endpoint = 1
-# ran_intervals = 100
-
-# trap = trapezoidal(func, startpoint, endpoint, ran_intervals)
-# mp = midpoint(func, startpoint, endpoint, ran_intervals)
-# sp = simpson(func, startpoint, endpoint, ran_intervals)
-
-# ls = [trap, mp, sp]
-
-# def diff_pi(x):
-#     diff = abs(x - np.pi)
-#     print(diff)
-    
-# for i in ls:
-#     print(i)
+# TEST CODE
+if __name__ == '__main__':
+    func = lambda x: 2./(x**2+1)
+    ker = IntegralKernel(func=func, startpoint=-1, endpoint=1)
+    ker.add_method([trapezoidal, midpoint, simpson])
+    ker.integrate_pretty()
