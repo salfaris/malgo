@@ -1,4 +1,4 @@
-from typing import List, Any
+from typing import List, Any, Union
 from custom_type import Function, Real, KernelMethod
 
 class IntegralKernel:
@@ -9,8 +9,11 @@ class IntegralKernel:
         self.subdivisions = 50
         self.methods = []
     
-    def add_method(self, methods: List[KernelMethod]):
-        self.methods.extend(methods)
+    def add_method(self, methods: Union[KernelMethod, List[KernelMethod]]):
+        if not isinstance(methods, list):
+            self.methods.append(methods)
+        else:
+            self.methods.extend(methods)
         self.methods = list(set(self.methods))
         return self
     
