@@ -1,4 +1,4 @@
-# Math Algorithms
+# malgo
 
 A collection of common math algorithms. We sort according to difficulty, in particular, based on how much theory would be required to understand these algorithms.
 
@@ -7,7 +7,9 @@ A collection of common math algorithms. We sort according to difficulty, in part
 - k-Factorials
 - Price discount
 - Differentiation (Finite difference method)
+- Roots (Newton, Secant, Bisection)
 
 ### Medium
 - Gaussian Elimination
 - Integration (Trapezoidal, Midpoint, Simpson)
+- Interpolation (Lagrange)
