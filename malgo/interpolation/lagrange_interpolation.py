@@ -1,6 +1,14 @@
-from custom_type import Indeterminate, Real, pt_index
+# System imports
+import sys
+sys.path.append('.')
 from typing import List, Tuple
+
+# Local imports
+from malgo.custom_type import Indeterminate, Real, pt_index
+
+# Third-party imports
 import numpy as np
+
 
 def basis_polynomial(x: Indeterminate, i: pt_index, xs: List[Real]) -> Real:
     """The Lagrange basis polynomial.
@@ -51,11 +59,10 @@ def chebyshev(a: Real, b: Real, n: int) -> List[Real]:
         cheb_points.append(point)
     return cheb_points
 
-# # TEST CASE
-# if __name__ == '__main__':
-#     xs = [1, 2, 3, 4, 5, 6]
-#     ys = [0, 0.841471, 0.909297, 0.14122, -0.756802, -0.958924]
+# TEST CASE
+if __name__ == '__main__':
+    xs = [1, 2, 3, 4, 5, 6]
+    ys = [0, 0.841471, 0.909297, 0.14122, -0.756802, -0.958924]
     
-#     # print(lagrange(1.5, xs, ys))
-#     print(chebyshev(a=-5, b=5, n=10))
-        
+    # print(lagrange(1.5, xs, ys))
+    print(chebyshev(a=-5, b=5, n=10))

@@ -1,4 +1,7 @@
-from custom_type import Function, Real
+import sys
+sys.path.append('.')
+
+from malgo.custom_type import Function, Real
 
 def bisection(f: Function, a: Real, b: Real):
     tol = 1/10 ** 10

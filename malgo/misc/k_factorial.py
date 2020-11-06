@@ -1,4 +1,8 @@
-from test import OneParamRangeTest, TwoParamRangeTest
+# System imports
+import sys
+sys.path.append('.')
+
+from malgo.test import OneParamRangeTest, TwoParamRangeTest
 
 def factorial(n: int):
     if n == 0 or n == 1:

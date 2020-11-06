@@ -5,10 +5,13 @@ All functions below has arguments as follows:
     b: Interval endpoint.
     n: Number of subintervals to divide the interval [a, b].
 """
+# System imports
+import sys
+sys.path.append('.')
 
 import numpy as np
-from custom_type import Function, Real
-from models import IntegralKernel
+from malgo.custom_type import Function, Real
+from malgo.models import IntegralKernel
 
 def midpoint(f: Function, a: Real, b: Real, n: int):
     """Integration using the midpoint rule."""
@@ -26,12 +29,19 @@ def trapezoidal(f: Function, a: Real, b: Real, n: int) -> Real:
 
 def simpson(f: Function, a: Real, b: Real, n: int) -> Real:
     """Integration using the Simpson's rule."""
+    # Step size, h
     dx = float(b-a) / n
+    
+    # First sum term, f(a + ih)
     xs1 = np.arange(start=a+dx, stop=b, step=dx)
+    fs1 = list(map(lambda x: f(x), xs1))
+    
+    # Second sum term, f(a + h/2 + ih)
     xs2 = np.arange(start=a+dx/2, stop=b+dx/2, step=dx)
-    fs1 = list(map(lambda x: f(x), xs1))  # f(a + ih)
-    fs2 = list(map(lambda x: f(x), xs2))  # f(a + h/2 + ih)
-    return (sum(fs1) + 2*sum(fs2) + 0.5*(f(a) + f(b))) * dx/3
+    fs2 = list(map(lambda x: f(x), xs2))
+    
+    total_sum = (sum(fs1) + 2*sum(fs2) + 0.5*(f(a) + f(b))) * dx/3
+    return total_sum
 
 
 # TEST CODE
@@ -41,4 +51,4 @@ if __name__ == '__main__':
                          startpoint=-1,
                          endpoint=1)
     ker.add_method([trapezoidal, midpoint, simpson])
-    ker.integrate_pretty(subdivisions=50)
+    ker.integrate_pretty(subdivisions=100)

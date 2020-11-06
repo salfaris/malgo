@@ -1,5 +1,8 @@
-from custom_type import Function, Real
+import sys
+sys.path.append('.')
+
 from typing import List
+from malgo.custom_type import Function, Real
 
 def secant(f: Function, x0: Real, x1: Real):
     """The secant method root-finding algorithm.
@@ -12,7 +15,7 @@ def secant(f: Function, x0: Real, x1: Real):
     Returns:
         float: The solution to f(x) = 0.
     """
-    xs = [x0, x1]
+    xs = [x0, x1]  # Sequence of xn.
     for _ in range(10):
         res = secant_recurrence_formula(f, xs[-1], xs[-2])
         xs.append(res)

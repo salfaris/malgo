@@ -1,4 +1,7 @@
-from test import OneParamRangeTest
+import sys
+sys.path.append('.')
+
+from malgo.test import OneParamRangeTest
 
 def fibonacci_num(n):
     if n == 0:

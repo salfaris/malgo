@@ -54,4 +54,3 @@ class FunctionTest:
       
     # def init_test(self, algo: Callable) -> None:
     #     for func in self.function_list:
-            

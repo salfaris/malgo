@@ -1,4 +1,7 @@
-from custom_type import Function, Real
+import sys
+sys.path.append('.')
+
+from malgo.custom_type import Function, Real
 
 def newton(f: Function, df: Function, x0: Real):
     """The Newton method root-finding algorithm.

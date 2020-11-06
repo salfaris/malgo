@@ -1,5 +1,9 @@
+# System imports
+import sys
+sys.path.append('.')
+
+from malgo.custom_type import Matrix, Vector, mat_index
 import numpy as np
-from custom_type import Matrix, Vector, mat_index
 
 def find_maximal(row):
     absrow = [abs(r) for r in row]
@@ -66,15 +70,18 @@ def gaussPivot(A: Matrix, b: Vector):
         b = b - x[j] * A[:, j]
     return x
 
-A = np.array([
-    [0, 1., 1.],
-    [1., 5., 4.],
-    [5., 4., 1.]
-])
 
-b = np.array([3., 23., 16.])
+# TEST CASE
+if __name__ == '__main__':
+    A = np.array([
+        [0, 1., 1.],
+        [1., 5., 4.],
+        [5., 4., 1.]
+    ])
 
-soln = gaussPivot(A, b)
-print(soln)
-print(f"Original b: {b}")
-print("Gaussed b: {}".format(np.dot(A, soln)))
+    b = np.array([3., 23., 16.])
+
+    soln = gaussPivot(A, b)
+    print(soln)
+    print(f"Original b: {b}")
+    print("Gaussed b: {}".format(np.dot(A, soln)))
