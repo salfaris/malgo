@@ -1,5 +1,5 @@
 import numpy as np
-from typing import Callable, List
+from typing import Callable, List, TypeVar
 
 # Local type aliases
 KernelMethod = Callable
@@ -12,7 +12,7 @@ pt_index = int
 
 # Analysis type aliases
 Function = Callable
-Real = float
+Real = TypeVar('Real', int, float)
 
 # Linear Algebra type aliases
 Matrix = np.array
