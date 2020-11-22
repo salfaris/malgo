@@ -8,8 +8,14 @@ A collection of common math algorithms. We sort according to difficulty, in part
 - Price discount
 - Differentiation (Finite difference method)
 - Roots (Newton, Secant, Bisection)
+- Monte-Carlo integration
 
 ### Medium
 - Gaussian Elimination
-- Integration (Trapezoidal, Midpoint, Simpson)
+- Basic integration methods (Trapezoidal, Midpoint, Simpson)
 - Interpolation (Lagrange)
+- Polynomial Fit
+- Euler's method
+
+### Hard
+- Gaussian Quadrature
