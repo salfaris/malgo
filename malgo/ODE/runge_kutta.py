@@ -13,7 +13,8 @@ def runge_kutta(init_conds: List[Real], a: Real, b: Real, N: int, f: Function):
        a: Initial value of x, also used as startpoint of interval.
        b: Endpoint of interval.
        N: Number of subintervals.
-       f: The n-1 th order system if this is an n-th order ODE.
+       f: The n-1 th order system if this is an n-th 
+            order ODE. It admits the form f(x, y_vec).
     """
     h = float(b-a) / N
     ys = np.zeros((N+1, len(init_conds)))
@@ -32,7 +33,8 @@ def F_vec(x: Real, y_vec: Vector, f: Function):
     Args:
         x: Indeterminate
         y_vec: The n-vector (y0, y1, ..., y(n-1))
-        f: The function to append; it defines the ODE.
+        f: The function to append; it defines the ODE. It 
+            admits the form f(x, y_vec).
         
     Returns:
         F_vec, a vector of the form (y1, y2, ..., f(x, y_vec))
