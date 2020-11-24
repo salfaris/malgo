@@ -20,11 +20,13 @@ def runge_kutta(init_conds: List[Real], a: Real, b: Real, N: int, f: Function):
     ys = np.zeros((N+1, len(init_conds)))
     ys[0] = init_conds
     xs = np.arange(start=a, stop=b+h, step=h)
+    
     for i in range(N):
-        F_vec_current_i = F_vec(a+i*h, ys[i], f)
-        ys[i+1] = (ys[i]
-                   + h/2*F_vec_current_i
-                   + h/2*F_vec(a+(i+1)*h, ys[i] + h*F_vec_current_i, f))
+        xi, yi = a+i*h, ys[i]
+        F_vec_i = F_vec(xi, yi, f)
+        ys[i+1] = (yi
+                   + h/2*F_vec_i
+                   + h/2*F_vec(xi+h, yi + h*F_vec_i, f))
     return xs, ys
 
 def F_vec(x: Real, y_vec: Vector, f: Function):

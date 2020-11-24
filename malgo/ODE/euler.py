@@ -21,7 +21,8 @@ def euler(init_conds: List[Real], a: Real, b: Real, N: int, f: Function):
     ys[0] = init_conds
     xs = np.arange(start=a, stop=b+h, step=h)
     for i in range(N):
-        ys[i+1] = ys[i] + h*F_vec(a+i*h, ys[i], f)
+        xi, yi = a + i*h, ys[i]
+        ys[i+1] = yi + h*F_vec(xi, yi, f)
     return xs, ys
 
 def F_vec(x: Real, y_vec: Vector, f: Function):
