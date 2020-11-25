@@ -11,11 +11,12 @@ A collection of common math algorithms. We sort according to difficulty, in part
 - Monte-Carlo integration
 
 ### Medium
-- Gaussian Elimination
+- Gaussian elimination
 - Basic integration methods (Trapezoidal, Midpoint, Simpson)
-- Interpolation (Lagrange)
-- Polynomial Fit
-- Euler's method
+- Lagrange interpolation
+- Polynomial fit
+- Initial value problems (Euler, Runge-Kutta)
+- Shooting method (for boundary value problem)
 
 ### Hard
 - Gaussian Quadrature
