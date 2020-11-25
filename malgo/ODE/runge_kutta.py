@@ -48,10 +48,9 @@ def runge_kutta_2nd(init_conds: List[Real], a: Real, b: Real, N: int, f: Functio
     
     for i in range(N):
         xi, yi = a+i*h, ys[i]
-        F_vec_i = F_vec(xi, yi, f)
-        ys[i+1] = (yi
-                   + h/2*F_vec_i
-                   + h/2*F_vec(xi+h, yi + h*F_vec_i, f))
+        K0 = h * F_vec(xi, yi, f)
+        K1 = h * F_vec(xi+h, yi+K0, f)
+        ys[i+1] = yi + 1./2*(K0 + K1)
     return xs, ys
 
 def F_vec(x: Real, y_vec: Vector, f: Function):
