@@ -4,6 +4,28 @@ sys.path.append('.')
 from typing import List
 from malgo.custom_type import Function, Real
 
+def modified_secant(f: Function, x0: Real, x1: Real):
+    """The improved secant method root-finding algorithm.
+    
+    Args:
+        f: Function to find solution for.
+        x0: First point for the secant line approximation.
+        x1: Second point for the secant line approximation.
+        
+    Returns:
+        float: The solution to f(x) = 0.
+    """
+    xs = [x0, x1]  # Sequence of xn.
+    tol = 10**(-7)
+    while True:
+        res = secant_recurrence_formula(f, xs[-1], xs[-2])
+        abs_diff = abs(res-xs[-1])
+        if abs_diff < tol:
+            xs.append(res)
+            break
+        xs.append(res)
+    return xs[-1]
+
 def secant(f: Function, x0: Real, x1: Real):
     """The secant method root-finding algorithm.
     
